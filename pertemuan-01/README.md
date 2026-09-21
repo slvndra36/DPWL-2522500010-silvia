@@ -69,7 +69,7 @@ Alasannya : Karena View bertugas menampilkan informasi kepada pengguna
 jadi Query dan akses database berada di Model, proses login berada di Controller, sedangkan form dan hasil yang dilihat pengguna itu berada di View.
 
 
-6. Kesimpulan P1
+f. Kesimpulan P1
 Modul P1 menjelaskan bahwa DPWL merupakan lanjutan dari PWD dan DPW dengan tujuan membuat aplikasi web yang lebih terstruktur menggunakan konsep MVC (Model mengelola data, Controller mengatur proses, dan View menampilkan informasi kepada pengguna).
 
 Melalui MVC juga mahasiswa itu belajar memisahkan tanggung jawab setiap bagian aplikasi, sehingga pengembangan menjadi lebih terorganisasi. Pada materi P1, fokusnya pada memahami konsep dan memetakan aplikasi DPW ke MVC.
