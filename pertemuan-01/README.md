@@ -1,10 +1,12 @@
 # pertemuan-01
-a) Jawaban:DPWL merupakan kelanjutan dari PWD dan DPW.
+a) Kesinambungan PWD–DPW–DPWL 
+Jawaban:DPWL merupakan kelanjutan dari PWD dan DPW.
 Pada PWD yg di pelajari mahasiswa pengenalan bahasa yang digunakan untuk membuat web seperti **HTML**, **CSS**, **JavaScript**, **PHP**.
 Kemudian pada DPW, kemampuan tersebut dikembangkan menjadi PHP yang lebih terstruktur, seperti modularisasi, MySQLi, prepared statement, autentikasi, session, CRUD, transaksi. Untuk DPWL tidak dimulai dari awal, tetapi mengorganisasikan kembali kompetensi web sebelumnya ke dalam arsitektur MVC (*Model*, *View*, *Controller*).
 
 
-b) Jawaban:
+b) Perbedaan PHP terstruktur dan MVC
+Jawaban:
 Perbedaan utamanya adalah pada cara membagi dan mengorganisasikan tanggung jawab dalam aplikasi.
 
 Pada PHP terstruktur, dalam satu file atau halaman bisa terdapat beberapa bagian sekaligus, misalnya:
@@ -19,7 +21,8 @@ Contoh seperti: Pada PHP terstruktur, proses login, query database, dan tampilan
 Pada MVC, proses tersebut dipisahkan agar aplikasi lebih terorganisasi dan pemisahan bagian-bagian lebih jelas.
 
 
-c) Jawaban:
+c) Fungsi Model, View, dan Controller
+Jawaban:
 1. Model
 Fungsi: mengelola data dan berhubungan dengan database. Untuk batasnya, Model bukan tempat untuk membuat tampilan HTML.
 
@@ -30,7 +33,8 @@ Fungsi: menampilkan informasi kepada pengguna dan menyediakan tampilan/interaksi
 Fungsi: menerima request dan mengatur alur proses aplikasi. Dan untuk batasan nya, Controller bukan tempat untuk membuat tampilan HTML yang panjang atau mencampurkan query database secara langsung.
 
 
-d) Jawaban: 
+d) Alur request–response MVC
+Jawaban: 
 1. Pengguna > Browser
 Pengguna melakukan suatu tindakan, misalnya membuka halaman atau mengirim form login.
 
@@ -56,7 +60,8 @@ Controller menentukan data yang akan diberikan kepada View.
 View menyusun tampilan atau response, kemudian hasilnya dikirim kembali melalui browser kepada pengguna tersebut.
 
 
-e. Misalnya pada aplikasi DPW terdapat fitur login admin.
+e)Pemetaan satu atau beberapa bagian/fitur aplikasi DPW ke Model, Controller, dan View disertai alasan
+Jawab: Misalnya pada aplikasi DPW terdapat fitur login admin.
 Model: Model Query untuk mencari data username/password admin di database.
 Alasannya: Karena Model bertugas mengakses dan mengelola data.
 
@@ -69,7 +74,7 @@ Alasannya : Karena View bertugas menampilkan informasi kepada pengguna
 jadi Query dan akses database berada di Model, proses login berada di Controller, sedangkan form dan hasil yang dilihat pengguna itu berada di View.
 
 
-f. Kesimpulan P1
-Modul P1 menjelaskan bahwa DPWL merupakan lanjutan dari PWD dan DPW dengan tujuan membuat aplikasi web yang lebih terstruktur menggunakan konsep MVC (Model mengelola data, Controller mengatur proses, dan View menampilkan informasi kepada pengguna).
+f) Kesimpulan P1
+Jawab: Modul P1 menjelaskan bahwa DPWL merupakan lanjutan dari PWD dan DPW dengan tujuan membuat aplikasi web yang lebih terstruktur menggunakan konsep MVC (Model mengelola data, Controller mengatur proses, dan View menampilkan informasi kepada pengguna).
 
 Melalui MVC juga mahasiswa itu belajar memisahkan tanggung jawab setiap bagian aplikasi, sehingga pengembangan menjadi lebih terorganisasi. Pada materi P1, fokusnya pada memahami konsep dan memetakan aplikasi DPW ke MVC.
