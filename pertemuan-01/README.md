@@ -62,11 +62,11 @@ View menyusun tampilan atau response, kemudian hasilnya dikirim kembali melalui 
 
 e)Pemetaan satu atau beberapa bagian/fitur aplikasi DPW ke Model, Controller, dan View disertai alasan
 Jawab: Misalnya pada aplikasi DPW terdapat fitur login admin.
-Model: Model Query untuk mencari data username/password admin di database.
+Model: Model	Query untuk mencari data username/password admin di database.
 Alasannya: Karena Model bertugas mengakses dan mengelola data.
 
-Controller : Menerima data login, melakukan validasi, sanitasi, dan mengatur proses login.
-Alasannya : Karena Controller bertugas mengatur alur proses nya.
+Controller : Menerima data login, mengatur proses login.
+Alasannya : Karena Controller menentukan data yang akan di teruskan.
 
 View : Halaman/form login dan pesan seperti “Login berhasil” atau “Username/password salah”
 Alasannya : Karena View bertugas menampilkan informasi kepada pengguna
@@ -77,4 +77,5 @@ jadi Query dan akses database berada di Model, proses login berada di Controller
 f) Kesimpulan P1
 Jawab: Modul P1 menjelaskan bahwa DPWL merupakan lanjutan dari PWD dan DPW dengan tujuan membuat aplikasi web yang lebih terstruktur menggunakan konsep MVC (Model mengelola data, Controller mengatur proses, dan View menampilkan informasi kepada pengguna).
 
-Melalui MVC juga mahasiswa itu belajar memisahkan tanggung jawab setiap bagian aplikasi, sehingga pengembangan menjadi lebih terorganisasi. Pada materi P1, fokusnya pada memahami konsep dan memetakan aplikasi DPW ke MVC.
+Melalui MVC juga mahasiswa itu belajar memisahkan tanggung jawab setiap bagian aplikasi, sehingga pengembangan menjadi lebih terorganisasi. Pada materi P1, fokusnya pada memahami konsep dan memetakan aplikasi DPW ke MVC, serta README.md pada root repositori berfungsi sebagai halaman utama yang menjelaskan identitas 
+proyek pembelajaran dan perkembangan. GitHub juga sebagai repositori daring untuk menyimpan, mengelola.
