@@ -1,1 +1,2 @@
 # pertemuan-02
+krhtitthrtgheuiwhiguheguig
