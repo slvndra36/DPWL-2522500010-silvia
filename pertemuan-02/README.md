@@ -200,12 +200,11 @@ Contohnya, jika custom route tidak berjalan:
 
 ### Gambar 1. Hasil Pengujian Halaman Utama
 
-```markdown
+
 ![Gambar 1 - Halaman Utama](gambar1.png)
-```
+
 ### Gambar 2. Hasil Pengujian Custom Route
 
-```markdown
 ![Gambar 2 - Custom Route](gambar2.png)
 
 ## 9. Kesimpulan P2
