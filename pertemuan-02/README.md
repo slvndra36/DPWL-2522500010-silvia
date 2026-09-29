@@ -1,2 +1,2 @@
 # pertemuan-02
-krhtitthrtgheuiwhiguheguig
+rhgjreurigrjgeeieejiejegei
