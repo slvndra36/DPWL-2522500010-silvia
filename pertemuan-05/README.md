@@ -1,7 +1,7 @@
 # pertemuan-05
-![Gambar 1 TAMBAH](tambah.png)
+![Gambar 1 TAMBAH](dokumentasi/TAMBAH.png)
 
-![Gambar 2 UBAH](ubah.png)
+![Gambar 2 UBAH](dokumentasi/UBAH.png)
 
-![Gambar 3 HAPUS](hapus.png)
+![Gambar 3 HAPUS](dokumentasi/HAPUS.png)
 
