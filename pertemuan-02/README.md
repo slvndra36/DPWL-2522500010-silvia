@@ -196,7 +196,7 @@ Contohnya, jika custom route tidak berjalan:
 * **Perbaikan:** memperbaiki aturan route pada `application/config/routes.php`.
 * **Hasil uji ulang:** custom route dapat menampilkan View dan parameter sesuai yang diharapkan.
 
-## 8. Bukti Tangkapan Layar
+ 8. Bukti Tangkapan Layar
 
 ### Gambar 1. Hasil Pengujian Halaman Utama
 
@@ -206,7 +206,7 @@ Contohnya, jika custom route tidak berjalan:
 ### Gambar 2. Hasil Pengujian Custom Route
 
 ![Gambar 2 - Custom Route](gambar2.png)
-
+##
 ## 9. Kesimpulan P2
 
 Pada P2, saya sudah dapat membuat fondasi MVC sederhana menggunakan PHP tanpa framework. Aplikasi sudah memiliki `index.php` sebagai Front Controller, Router untuk memetakan URL, Controller untuk menangani request, dan View untuk menampilkan hasil kepada pengguna.
