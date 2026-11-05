@@ -264,4 +264,121 @@ class Penyewa_model
 
         return $success;
     }
+// =========================================
+    // P8: menampilkan seluruh data penyewa
+    // =========================================
+   
+// =========================================
+// Menampilkan semua data penyewa
+// =========================================
+public function getAll(): array
+{
+    $sql = "SELECT
+                user_plg,
+                nik,
+                nm_lngkp,
+                no_hp,
+                almt_lngkp,
+                ft_ktp,
+                ft_sim_a
+            FROM t_penyewa
+            ORDER BY nm_lngkp ASC";
+
+    $stmt = $this->db->prepare($sql);
+
+    if (!$stmt) {
+        throw new RuntimeException(
+            'Query data penyewa gagal disiapkan.'
+        );
+    }
+
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+    $data = $result->fetch_all(MYSQLI_ASSOC);
+
+    $stmt->close();
+
+    return $data;
+}
+
+// =========================================
+// P8: Menambahkan data penyewa oleh admin
+// =========================================
+
+public function updateByAdmin(
+    string $userPlg,
+    string $nik,
+    string $nama,
+    string $noHp,
+    string $alamat,
+    ?string $passwordHash,
+    ?string $ftKtp,
+    ?string $ftSimA
+): bool {
+    if ($passwordHash !== null) {
+        $sql = "UPDATE t_penyewa
+                SET nik = ?,
+                    nm_lngkp = ?,
+                    no_hp = ?,
+                    almt_lngkp = ?,
+                    sandi = ?,
+                    ft_ktp = ?,
+                    ft_sim_a = ?
+                WHERE user_plg = ?";
+
+        $stmt = $this->db->prepare($sql);
+
+        if (!$stmt) {
+            throw new RuntimeException(
+                'Query update penyewa gagal disiapkan.'
+            );
+        }
+
+        $stmt->bind_param(
+            'ssssssss',
+            $nik,
+            $nama,
+            $noHp,
+            $alamat,
+            $passwordHash,
+            $ftKtp,
+            $ftSimA,
+            $userPlg
+        );
+    } else {
+        $sql = "UPDATE t_penyewa
+                SET nik = ?,
+                    nm_lngkp = ?,
+                    no_hp = ?,
+                    almt_lngkp = ?,
+                    ft_ktp = ?,
+                    ft_sim_a = ?
+                WHERE user_plg = ?";
+
+        $stmt = $this->db->prepare($sql);
+
+        if (!$stmt) {
+            throw new RuntimeException(
+                'Query update penyewa gagal disiapkan.'
+            );
+        }
+
+        $stmt->bind_param(
+            'sssssss',
+            $nik,
+            $nama,
+            $noHp,
+            $alamat,
+            $ftKtp,
+            $ftSimA,
+            $userPlg
+        );
+    }
+
+    $success = $stmt->execute();
+    $stmt->close();
+
+    return $success;
+}
 }
