@@ -1,4 +1,5 @@
- <?php
+
+<?php
 
 class Penyewa_model
 {
@@ -10,6 +11,7 @@ class Penyewa_model
         $this->db = $db;
     }
 
+    // Memeriksa username penyewa
     public function findByUserPlg(string $userPlg): ?array
     {
         $sql = "SELECT user_plg
@@ -29,7 +31,6 @@ class Penyewa_model
 
         if (!$stmt->execute()) {
             $stmt->close();
-
             throw new RuntimeException(
                 'Pemeriksaan username penyewa gagal dijalankan.'
             );
@@ -42,6 +43,7 @@ class Penyewa_model
         return $row ?: null;
     }
 
+    // Registrasi penyewa
     public function create(array $data): bool
     {
         $sql = "INSERT INTO t_penyewa (
@@ -79,7 +81,7 @@ class Penyewa_model
         return $success;
     }
 
-    // P6: untuk login penyewa
+    // P6: mencari akun untuk login
     public function findForLogin(string $userPlg): ?array
     {
         $sql = "SELECT user_plg, sandi, nm_lngkp
@@ -99,7 +101,6 @@ class Penyewa_model
 
         if (!$stmt->execute()) {
             $stmt->close();
-
             throw new RuntimeException(
                 'Pencarian akun penyewa gagal dijalankan.'
             );
@@ -112,7 +113,7 @@ class Penyewa_model
         return $row ?: null;
     }
 
-    // P6: mengambil profil penyewa.
+    // P6: mengambil profil penyewa
     public function getProfil(string $userPlg): ?array
     {
         $sql = "SELECT
@@ -139,7 +140,6 @@ class Penyewa_model
 
         if (!$stmt->execute()) {
             $stmt->close();
-
             throw new RuntimeException(
                 'Pengambilan profil penyewa gagal dijalankan.'
             );
@@ -174,7 +174,6 @@ class Penyewa_model
 
         if (!$stmt->execute()) {
             $stmt->close();
-
             throw new RuntimeException(
                 'Verifikasi password gagal dijalankan.'
             );
@@ -188,7 +187,7 @@ class Penyewa_model
             && password_verify($passwordSaatIni, $row['sandi']);
     }
 
-    // P6: memperbarui data profil dan referensi foto.
+    // P6: memperbarui data profil dan foto
     public function updateProfil(
         string $userPlg,
         string $nik,
@@ -199,6 +198,7 @@ class Penyewa_model
         ?string $ftSimA,
         ?string $passwordHash = null
     ): bool {
+
         if ($passwordHash !== null) {
             $sql = "UPDATE t_penyewa
                     SET nik = ?,
@@ -229,6 +229,7 @@ class Penyewa_model
                 $passwordHash,
                 $userPlg
             );
+
         } else {
             $sql = "UPDATE t_penyewa
                     SET nik = ?,
@@ -264,7 +265,8 @@ class Penyewa_model
 
         return $success;
     }
-// =========================================
+
+    // =========================================
     // P8: menampilkan seluruh data penyewa
     // =========================================
    
