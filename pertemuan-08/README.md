@@ -1,0 +1,2 @@
+# pertemuan-08
+Saya Berhasil Menambahkan menu Manajemen Penyewa pada sidebar.Menampilkan seluruh data penyewa, Menambahkan data penyewa,Mengubah data penyewa,Menghapus data penyewa,Upload foto KTP dan SIM A.serta saya mengupload db_dpwl_silvia036 
