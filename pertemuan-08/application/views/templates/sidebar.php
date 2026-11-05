@@ -57,6 +57,12 @@ fa-search"></i>
 </a>
 </li>
 
+<li>
+<a href="<?= htmlspecialchars(site_url('admin/npenyewa'), ENT_QUOTES, 'UTF-8') ?>">
+<i class="fa fa-user"></i> <span>Manajemen Penyewa</span>
+</a>
+</li>
+
 <!--/ ditambahkan pada P5-->
 </ul>
 <!-- /.sidebar-menu -->
