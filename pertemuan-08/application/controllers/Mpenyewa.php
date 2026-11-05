@@ -2,7 +2,7 @@
 <?php
 // P8: Manajemen Penyewa (CRUD oleh admin)
 
-class Npenyewa_controller extends Controller
+class Mpenyewa_controller extends Controller
 {
     private Penyewa_model $model;
 
@@ -100,7 +100,7 @@ class Npenyewa_controller extends Controller
 
         set_flash_message('success', 'Data penyewa berhasil ditambahkan.');
 
-        header('Location: ' . site_url('admin/npenyewa'));
+        header('Location: ' . site_url('admin/mpenyewa'));
         exit;
     }
 
@@ -117,7 +117,7 @@ class Npenyewa_controller extends Controller
         if ($penyewa === null) {
             set_flash_message('danger', 'Data penyewa tidak ditemukan.');
 
-            header('Location: ' . site_url('admin/npenyewa'));
+            header('Location: ' . site_url('admin/mpenyewa'));
             exit;
         }
 
@@ -215,7 +215,7 @@ class Npenyewa_controller extends Controller
 
         set_flash_message('success', 'Data penyewa berhasil diperbarui.');
 
-        header('Location: ' . site_url('admin/npenyewa'));
+        header('Location: ' . site_url('admin/mpenyewa'));
         exit;
     }
 
@@ -237,7 +237,7 @@ class Npenyewa_controller extends Controller
         if ($penyewa === null) {
             set_flash_message('danger', 'Data penyewa tidak ditemukan.');
 
-            header('Location: ' . site_url('admin/npenyewa'));
+            header('Location: ' . site_url('admin/mpenyewa'));
             exit;
         }
 
@@ -255,7 +255,7 @@ class Npenyewa_controller extends Controller
                 'Penyewa tidak dapat dihapus. Kemungkinan masih memiliki riwayat transaksi sewa.'
             );
 
-            header('Location: ' . site_url('admin/npenyewa'));
+            header('Location: ' . site_url('admin/mpenyewa'));
             exit;
         }
 
@@ -267,7 +267,7 @@ class Npenyewa_controller extends Controller
 
         set_flash_message('success', 'Data penyewa berhasil dihapus.');
 
-        header('Location: ' . site_url('admin/npenyewa'));
+        header('Location: ' . site_url('admin/mpenyewa'));
         exit;
     }
 
