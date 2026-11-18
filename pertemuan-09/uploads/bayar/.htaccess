@@ -1,0 +1,9 @@
+# P9: bukti pembayaran bersifat privat. Berkas hanya boleh dibuka lewat Controller
+# (pembayaran/bukti dan admin/pembayaran/bukti) yang memeriksa hak akses.
+<IfModule mod_authz_core.c>
+    Require all denied
+</IfModule>
+<IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+</IfModule>
