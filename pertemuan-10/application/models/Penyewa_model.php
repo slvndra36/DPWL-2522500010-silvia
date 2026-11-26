@@ -1,4 +1,4 @@
- <?php
+<?php
 
 class Penyewa_model
 {
@@ -53,7 +53,7 @@ class Penyewa_model
                     almt_lngkp,
                     ft_ktp,
                     ft_sim_a
-                ) VALUES (?, ?, ?, ?, ?, ?, NULL, NULL)";
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
         $stmt = $this->db->prepare($sql);
 
@@ -63,14 +63,19 @@ class Penyewa_model
             );
         }
 
+        $ftKtp  = $data['ft_ktp'] ?? null;
+        $ftSimA = $data['ft_sim_a'] ?? null;
+
         $stmt->bind_param(
-            'ssssss',
+            'ssssssss',
             $data['user_plg'],
             $data['sandi'],
             $data['nik'],
             $data['nm_lngkp'],
             $data['no_hp'],
-            $data['almt_lngkp']
+            $data['almt_lngkp'],
+            $ftKtp,
+            $ftSimA
         );
 
         $success = $stmt->execute();
@@ -263,5 +268,71 @@ class Penyewa_model
         $stmt->close();
 
         return $success;
+    }
+
+    // P8: mengambil seluruh data penyewa untuk halaman Manajemen Penyewa (admin).
+    public function getAll(): array
+    {
+        $sql = "SELECT
+                    user_plg,
+                    nik,
+                    nm_lngkp,
+                    no_hp,
+                    almt_lngkp,
+                    ft_ktp,
+                    ft_sim_a
+                FROM t_penyewa
+                ORDER BY nm_lngkp ASC";
+
+        $result = $this->db->query($sql);
+
+        if (!$result) {
+            throw new RuntimeException('Data penyewa gagal diambil.');
+        }
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    // P8: memperbarui data penyewa oleh admin.
+    public function updateByAdmin(
+        string $userPlg,
+        string $nik,
+        string $nama,
+        string $noHp,
+        string $alamat,
+        ?string $passwordHash,
+        ?string $ftKtp,
+        ?string $ftSimA
+    ): bool {
+        return $this->updateProfil(
+            $userPlg,
+            $nik,
+            $nama,
+            $noHp,
+            $alamat,
+            $ftKtp,
+            $ftSimA,
+            $passwordHash
+        );
+    }
+
+    // P8: menghapus data penyewa oleh admin.
+    public function delete(string $userPlg): bool
+    {
+        $sql = "DELETE FROM t_penyewa WHERE user_plg = ?";
+        $stmt = $this->db->prepare($sql);
+
+        if (!$stmt) {
+            throw new RuntimeException(
+                'Query hapus penyewa gagal disiapkan.'
+            );
+        }
+
+        $stmt->bind_param('s', $userPlg);
+        $success = $stmt->execute();
+        $affected = $stmt->affected_rows;
+        $stmt->close();
+
+        return $success && $affected > 0;
     }
 }

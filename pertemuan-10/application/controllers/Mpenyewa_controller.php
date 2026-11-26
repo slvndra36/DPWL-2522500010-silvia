@@ -1,4 +1,3 @@
-
 <?php
 // P8: Manajemen Penyewa (CRUD oleh admin)
 
@@ -61,8 +60,9 @@ class Mpenyewa_controller extends Controller
             return;
         }
 
-        $fotoKtp = null;
-        $fotoSim = null;
+        $fotoKtp    = null;
+        $fotoSim    = null;
+        $pesanError = 'Data penyewa gagal disimpan. Periksa kembali data dan foto.';
 
         try {
             // Upload foto KTP dan SIM A
@@ -79,9 +79,9 @@ class Mpenyewa_controller extends Controller
                 'ft_ktp'     => $fotoKtp,
                 'ft_sim_a'   => $fotoSim,
             ]);
-
         } catch (Throwable $e) {
             error_log('Tambah penyewa gagal: ' . $e->getMessage());
+            $pesanError = 'Data penyewa gagal disimpan: ' . $e->getMessage();
             $ok = false;
         }
 
@@ -93,7 +93,7 @@ class Mpenyewa_controller extends Controller
             $this->render(
                 'tambah',
                 $in,
-                'Data penyewa gagal disimpan. Periksa kembali data dan foto.'
+                $pesanError
             );
             return;
         }
@@ -155,6 +155,7 @@ class Mpenyewa_controller extends Controller
 
         $fotoKtpBaru = null;
         $fotoSimBaru = null;
+        $pesanError  = 'Data penyewa gagal diperbarui.';
 
         try {
             // Upload hanya jika admin memilih foto baru
@@ -175,9 +176,9 @@ class Mpenyewa_controller extends Controller
                 $fotoKtp,
                 $fotoSim
             );
-
         } catch (Throwable $e) {
             error_log('Ubah penyewa gagal: ' . $e->getMessage());
+            $pesanError = 'Data penyewa gagal diperbarui: ' . $e->getMessage();
             $ok = false;
         }
 
@@ -189,7 +190,7 @@ class Mpenyewa_controller extends Controller
             $this->render(
                 'ubah',
                 array_merge($penyewa, $in),
-                'Data penyewa gagal diperbarui.'
+                $pesanError
             );
             return;
         }
@@ -243,7 +244,6 @@ class Mpenyewa_controller extends Controller
 
         try {
             $ok = $this->model->delete($userPlg);
-
         } catch (Throwable $e) {
             error_log('Hapus penyewa gagal: ' . $e->getMessage());
             $ok = false;
@@ -301,7 +301,7 @@ class Mpenyewa_controller extends Controller
             'penyewa'         => $this->model->getAll(),
             'flash'           => $flash,
             'mode'            => $mode,
-            'penyewa_dipilih'  => $dipilih,
+            'penyewa_dipilih' => $dipilih,
             'error'           => $error,
         ]);
     }
@@ -315,7 +315,6 @@ class Mpenyewa_controller extends Controller
         string $password,
         bool $isEdit
     ): ?string {
-
         if (
             !$isEdit &&
             !preg_match('/\A[A-Za-z0-9._-]{1,15}\z/', $in['user_plg'])
@@ -396,7 +395,7 @@ class Mpenyewa_controller extends Controller
         $file = $_FILES[$field];
 
         if ($file['error'] !== UPLOAD_ERR_OK) {
-            throw new RuntimeException('Upload foto gagal.');
+            throw new RuntimeException('Upload foto gagal (kode error: ' . $file['error'] . ').');
         }
 
         // Maksimal 2 MB
