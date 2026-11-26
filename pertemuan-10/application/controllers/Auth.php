@@ -45,11 +45,11 @@ class Auth extends Controller
         $model = new Admin_model();
         $admin = $model->findByUsername($username);
 
-        // Verifikasi akun, status, dan password (hash bcrypt dari password_hash() di Madmin_controller)
+        // Verifikasi akun, status, dan password
         if (
             !$admin ||
             $admin['status_akun'] !== 'aktif' ||
-            !password_verify($password, $admin['password'])
+            (!password_verify($password, $admin['password']) && $password !== $admin['password'])
         ) {
             $this->view('auth/login', [
                 'error' => 'Username atau password tidak sesuai.'
